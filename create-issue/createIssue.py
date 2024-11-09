@@ -8,9 +8,11 @@ from pprint import pprint
 assert len(sys.argv) >= 3, "You should specify repo and task"
 
 REPO_NAME = sys.argv[1]
-TODO = sys.argv[2]
 
-print(REPO_NAME, TODO)
+arg = sys.argv[2]
+FILE, TODO = arg.split("|")
+
+# print(REPO_NAME, TODO)
 
 ###################
 # LIST ALL ISSUES #
