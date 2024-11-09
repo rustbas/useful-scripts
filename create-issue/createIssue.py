@@ -30,10 +30,24 @@ headers = {
         "X-GitHub-Api-Version": "2022-11-28" ,
 }
 
-r = requests.get(URL, headers=headers)
+params = {
+        'labels':'TODO',
+        'per_page':'100',
+}
+
+r = requests.get(URL, headers=headers, params=params)
 
 if r.status_code == 200:
-    pprint(r.json())
+    results = r.json()
+    # print(results)
+
+    issues2create = []
+
+    for res in results:
+        if TODO != res['title']:
+            issues2create.append((TODO, FILE))
+
+    print(issues2create)
 else:
     print(r.status_code)
     pprint(r.json())
