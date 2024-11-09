@@ -4,14 +4,12 @@
 
 TASKS=$(mktemp)
 
-for f in $@
-do
-    grep -rn "TODO:" "$f" | sed -E 's/(.*):[0-9]:.*TODO:\s?(.*)/\1|\2/' >> $TASKS
-done
+grep -rn "TODO:" | sed -E 's/(.*):[0-9]:.*TODO:\s?(.*)/\1|\2/' >> $TASKS
 
 while read task
 do
     echo $task
+    # ./createIssue.py "$task"
 done < $TASKS
 
 rm $TASKS
