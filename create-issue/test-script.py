@@ -1,5 +1,5 @@
-# TODO: import new libs
+# TODO: Import new libs
 import requests
 
-# TODO: fix typo
-print("Hello, wordl!") # TODO: def main
+# TODO: Fix typo
+print("Hello, wordl!") # TODO: Def main
