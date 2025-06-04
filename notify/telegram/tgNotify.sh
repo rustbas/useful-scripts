@@ -9,7 +9,7 @@ set -e
 
 ENV_FILE="/home/rustam/ws/projects/useful-scripts/notify/telegram/.env"
 
-# . "$ENV_FILE"
+[ -f "$ENV_FILE" ] && source "$ENV_FILE"
 
 DATA=`notify`
 
