@@ -5,13 +5,25 @@ notify() {
     echo $raw_data
 }
 
+DATA=`notify`
+
+while getopts "n" OPT; do
+    case $OPT in
+        n)
+            DATA="Empty command"
+            ;;
+        \?)
+            exit 1
+            ;;
+    esac
+done
+
 set -e
 
 ENV_FILE="/home/rustam/ws/projects/useful-scripts/notify/telegram/.env"
 
 [ -f "$ENV_FILE" ] && source "$ENV_FILE"
 
-DATA=`notify`
 
 [ -z "$TG_TOKEN" ]  && echo "Provide a TG_TOKEN variable!"  1>&2 && exit 1
 [ -z "$CHAT_ID" ]   && echo "Provide a CHAT_ID variable!"   1>&2 && exit 1
